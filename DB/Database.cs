@@ -94,8 +94,8 @@ internal class Database
                             -1418430647,
                             5
                         ),
-                    new Tuple<int, int> (1, 100),
-                    [new Reward(-1169471531, 1)]
+                    new Tuple<int, int>(1, 100),
+                    new List<Reward> { new Reward(-1169471531, 1) }
                 );
 
             template.Add (example);
@@ -186,23 +186,4 @@ internal class Database
         }
             
     }
-
-    public static int[] ValidGiverIds { get; private set; } =
-    [
-            194933933,
-            233171451,
-            281572043,
-            -1594911649,
-            -1168705805,
-            -375258845,
-            -208499374,
-            -1810631919,
-            -1292194494,
-            1631713257,
-            345283594,
-            -1990875761,
-            1687896942,
-            -915182578,
-            739223277
-    ];
 }
