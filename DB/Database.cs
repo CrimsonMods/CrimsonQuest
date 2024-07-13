@@ -187,7 +187,7 @@ internal class Database
             
     }
 
-    public static List<int> ValidGiverIds { get; private set; } =
+    public static int[] ValidGiverIds { get; private set; } =
     [
             194933933,
             233171451,
