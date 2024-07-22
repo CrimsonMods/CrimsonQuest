@@ -19,7 +19,7 @@ internal class QuestService
         {
             if (progress.CompletedDaily + progress.DailyQuests.Count >= Plugin.Settings.MAX_DAILY.Value) return;
 
-            if (progress.DailyQuests.Count >= 3 ) return;
+            if (progress.DailyQuests.Count >= Plugin.Settings.ACTIVE_DAILY.Value ) return;
 
             if (giver.GetRandomQuest(player, progress, out QuestModel quest))
             {
@@ -42,7 +42,7 @@ internal class QuestService
         {
             if (progress.CompletedWeekly + progress.WeeklyQuests.Count >= Plugin.Settings.MAX_WEEKLY.Value) return;
 
-            if (progress.WeeklyQuests.Count >= 3) return;
+            if (progress.WeeklyQuests.Count >= Plugin.Settings.ACTIVE_WEEKLY.Value) return;
 
             if (giver.GetRandomQuest(player, progress, out QuestModel quest))
             {

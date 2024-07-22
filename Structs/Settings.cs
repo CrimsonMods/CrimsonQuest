@@ -13,6 +13,9 @@ public readonly struct Settings
     public readonly ConfigEntry<int> MAX_DAILY;
     public readonly ConfigEntry<int> MAX_WEEKLY;
 
+    public readonly ConfigEntry<int> ACTIVE_DAILY;
+    public readonly ConfigEntry<int> ACTIVE_WEEKLY;
+
     public readonly ConfigEntry<int> DAY_OF_RESET;
     public readonly ConfigEntry<int> TIME_OF_RESET;
 
@@ -25,6 +28,9 @@ public readonly struct Settings
 
         MAX_DAILY = CONFIG.Bind("Config", "MaxDailies", 5, "The max amount of daily quests a player can complete in one day");
         MAX_WEEKLY = CONFIG.Bind("Config", "MaxWeeklies", 3, "The max amount of weekly quests a player can complete in a week");
+
+        ACTIVE_DAILY = CONFIG.Bind("Config", "ActiveDaily", 3, "The amount of active/in-progress dailies quests the player can have at once");
+        ACTIVE_WEEKLY = CONFIG.Bind("Config", "ActiveWeekly", 3, "The amount of active/in-progress weekly quests the player can have at once");
 
         DAY_OF_RESET = CONFIG.Bind("Config", "ResetDay", 1, "The day weeklies reset, 0 - Sunday, 1 - Monday, and so on.");
         TIME_OF_RESET = CONFIG.Bind("Config", "ResetTime", 0, "The hour on which Daily & Weekly resets in 24-hour time (0-23)");

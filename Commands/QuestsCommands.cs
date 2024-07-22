@@ -36,6 +36,32 @@ internal class QuestsCommands
         }
     }
 
+    [Command("weeklies", "weekly", description: "Shows your current Weekly Quests")]
+    public void ListWeeklyQuests(ChatCommandContext ctx) 
+    {
+        var entity = ctx.Event.SenderUserEntity;
+        UserModel user = GameData.Users.FromEntity(entity);
+
+        string message = $"Active Weekly Quests:\n";
+
+        if (CrimsonCore.PlayerData.GetProgressForUser(user, out QuestProgressModel progress))
+        {
+            if (progress.WeeklyQuests.Count == 0 || progress.WeeklyQuests == null)
+            {
+                message += "None";
+            }
+            else
+            {
+                foreach (QuestSlot slot in progress.WeeklyQuests)
+                {
+                    message += $"{slot.QuestInProgress.Description}\n";
+                }
+            }
+
+            ctx.Reply(message);
+        }
+    }
+
     [Command("get", "accept", description: "Accepts a quest from the closest giver")]
     public void GetQuest(ChatCommandContext ctx)
     {
